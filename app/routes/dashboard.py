@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, session
 
 bp = Blueprint('dashboard', __name__, url_prefix='/dashboard')
 
