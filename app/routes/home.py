@@ -15,11 +15,8 @@ def index():
     .all()
 )
 
-  return render_template(
-  'homepage.html',
-  posts=posts,
-  loggedIn=session.get('loggedIn')
-)
+  return render_template('homepage.html', posts=posts, loggedIn=session.get('loggedIn'))
+
 
 @bp.route('/login')
 def login():
@@ -27,7 +24,7 @@ def login():
   if session.get('loggedIn') is None:
     return render_template('login.html')
 
-  return redirect('/dashboard')
+  return redirect('dashboard.html')
   
 @bp.route('/post/<id>')
 def single(id):
@@ -37,7 +34,7 @@ def single(id):
 
   # render single post template
   return render_template(
-  'single-post.html',
-  post=post,
-  loggedIn=session.get('loggedIn')
+    'single-post.html',
+    post=post,
+    loggedIn=session.get('loggedIn')
 )
